@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Aud_cambios" representedClassName="Aud_cambios" syncable="YES">
+        <attribute name="columna" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fechaHoraDecSrv" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fechaHoraIntApp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idCambio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idEnTabla" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idUsuario" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tabla" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tipoCambio" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Aud_datos" representedClassName="Aud_datos" syncable="YES">
+        <attribute name="aFecha" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bIdCambio" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Categorias" representedClassName="Categorias" syncable="YES">
+        <attribute name="blue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="green" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idCategoria" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idPadre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="red" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="categoriasNegocios" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CategoriasNegocios" inverseName="categorias" inverseEntity="CategoriasNegocios" syncable="YES"/>
+    </entity>
+    <entity name="CategoriasNegocios" representedClassName="CategoriasNegocios" syncable="YES">
+        <attribute name="idCategoria" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idNegocio" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="categorias" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categorias" inverseName="categoriasNegocios" inverseEntity="Categorias" syncable="YES"/>
+        <relationship name="negocios" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Negocios" inverseName="categoriaNegocios" inverseEntity="Negocios" syncable="YES"/>
+    </entity>
+    <entity name="ImagenesNeg" representedClassName="ImagenesNeg" syncable="YES">
+        <attribute name="descripcion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idImg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idNegocio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tipo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="negocios" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Negocios" inverseName="imagenesNeg" inverseEntity="Negocios" syncable="YES"/>
+    </entity>
+    <entity name="Negocios" representedClassName="Negocios" syncable="YES">
+        <attribute name="correo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descripcion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="direccion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facebook" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favorito" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="filtro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idNegocio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagenes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitud" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitud" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pagina" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="twitter" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="categoriaNegocios" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoriasNegocios" inverseName="negocios" inverseEntity="CategoriasNegocios" syncable="YES"/>
+        <relationship name="imagenesNeg" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ImagenesNeg" inverseName="negocios" inverseEntity="ImagenesNeg" syncable="YES"/>
+    </entity>
+    <entity name="ZCl_categoriaCultura" representedClassName="ZCl_categoriaCultura" syncable="YES">
+        <attribute name="idCategoria" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idCultura" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="categoriasCl" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZCl_categorias" inverseName="categoriaCultura" inverseEntity="ZCl_categorias" syncable="YES"/>
+        <relationship name="cultura" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZCl_cultura" inverseName="categoriaCultura" inverseEntity="ZCl_cultura" syncable="YES"/>
+    </entity>
+    <entity name="ZCl_categorias" representedClassName="ZCl_categorias" syncable="YES">
+        <attribute name="idCategoria" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idPadre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="categoriaCultura" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZCl_categoriaCultura" inverseName="categoriasCl" inverseEntity="ZCl_categoriaCultura" syncable="YES"/>
+    </entity>
+    <entity name="ZCl_cultura" representedClassName="ZCl_cultura" syncable="YES">
+        <attribute name="autor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descripcion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fotografia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idCultura" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="categoriaCultura" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZCl_categoriaCultura" inverseName="cultura" inverseEntity="ZCl_categoriaCultura" syncable="YES"/>
+        <relationship name="imagenesCl" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZCl_imagenes" inverseName="cultura" inverseEntity="ZCl_imagenes" syncable="YES"/>
+    </entity>
+    <entity name="ZCl_imagenes" representedClassName="ZCl_imagenes" syncable="YES">
+        <attribute name="descripcion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idCultura" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idImg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tipo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cultura" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZCl_cultura" inverseName="imagenesCl" inverseEntity="ZCl_cultura" syncable="YES"/>
+    </entity>
+    <entity name="ZEv_Eventos" representedClassName="ZEv_Eventos" syncable="YES">
+        <attribute name="anio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="arboleda" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="correo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descripcion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facebook" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fotografia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="horas" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idEvento" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lugar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="minutos" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pagina" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="twitter" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="imagenesEv" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZEv_Imagenes" inverseName="eventos" inverseEntity="ZEv_Imagenes" syncable="YES"/>
+    </entity>
+    <entity name="ZEv_Imagenes" representedClassName="ZEv_Imagenes" syncable="YES">
+        <attribute name="descripcion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idEvento" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idImg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tipo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="eventos" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZEv_Eventos" inverseName="imagenesEv" inverseEntity="ZEv_Eventos" syncable="YES"/>
+    </entity>
+    <entity name="ZUsr_Profile" representedClassName="ZUsr_Profile" syncable="YES">
+        <attribute name="idProfile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZUsr_Users" inverseName="profile" inverseEntity="ZUsr_Users" syncable="YES"/>
+    </entity>
+    <entity name="ZUsr_Users" representedClassName="ZUsr_Users" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idProfile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idUser" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="profile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZUsr_Profile" inverseName="users" inverseEntity="ZUsr_Profile" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Aud_cambios" positionX="-315" positionY="-126" width="99" height="163"/>
+        <element name="Aud_datos" positionX="-207" positionY="-126" width="90" height="75"/>
+        <element name="Categorias" positionX="70" positionY="-126" width="92" height="150"/>
+        <element name="CategoriasNegocios" positionX="45" positionY="14" width="117" height="103"/>
+        <element name="ImagenesNeg" positionX="72" positionY="149" width="90" height="148"/>
+        <element name="Negocios" positionX="-90" positionY="-126" width="108" height="268"/>
+        <element name="ZCl_categoriaCultura" positionX="-198" positionY="239" width="117" height="103"/>
+        <element name="ZCl_categorias" positionX="-324" positionY="239" width="90" height="103"/>
+        <element name="ZCl_cultura" positionX="-207" positionY="54" width="90" height="148"/>
+        <element name="ZCl_imagenes" positionX="-324" positionY="54" width="90" height="148"/>
+        <element name="ZEv_Eventos" positionX="306" positionY="71" width="81" height="285"/>
+        <element name="ZEv_Imagenes" positionX="189" positionY="74" width="90" height="150"/>
+        <element name="ZUsr_Profile" positionX="180" positionY="-126" width="90" height="88"/>
+        <element name="ZUsr_Users" positionX="297" positionY="-126" width="90" height="163"/>
+    </elements>
+</model>

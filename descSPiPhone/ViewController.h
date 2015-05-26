@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UIWebViewDelegate, MKMapViewDelegate, MFMailComposeViewControllerDelegate,UIScrollViewDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *iboBoton1;
+- (IBAction)ibaBoton1:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *iboBtnEv;
+- (IBAction)ibaBtnEv:(id)sender;
+- (IBAction)ibaBtnCul:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *iboBtnCul;
 
-
+- (IBAction)menuPrincipal:(UIButton *)sender;
 @end
 
